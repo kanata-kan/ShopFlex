@@ -27,6 +27,8 @@ app.use(compression());
 app.use(cors());
 app.options('*', cors());
 
+app.use(express.static('public'));
+
 // Additional code for setting up routes and middleware can be added here...
 
 // Connect to MongoDB
