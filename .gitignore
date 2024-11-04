@@ -4,3 +4,4 @@ node_modules/
 # تجاهل ملف config.env
 config.env
 
+.vercel

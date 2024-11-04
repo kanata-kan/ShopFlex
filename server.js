@@ -17,11 +17,19 @@ const globalMiddleware = require('./middlewares/globalMiddleware');
 
 // 4. Import routes
 const mountRoute = require('./routes');
+const { webhookCheckout } = require('./services/orderService');
 
 //  Create Express application
 const app = express();
 // compress all responses
 app.use(compression());
+
+// Checkout webhook
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  webhookCheckout,
+);
 
 // Enable CORS (Cross-Origin Resource Sharing)
 app.use(cors());
